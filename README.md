@@ -1,16 +1,18 @@
-# 🚗💨 Car Dealership
+# 🚗💨  Car Dealership
 
-This is the front end to the [learning-asp](https://github.com/adamcurzon/learning-asp) project.
+This is the Vue 3 front end to the [learning-asp](https://github.com/adamcurzon/learning-asp) project.
 
 ## 🎆 Preview
 
-## 🤔 TO DO
+![Preview Image](https://raw.githubusercontent.com/adamcurzon/car-dealership/main/preview.png)
+
+## 🤔  TO DO
 - Connect API
-- Store cars in state
+- Store cars in vuex state
 - Add login page
 - Store JWT or cookies
 
-## ⚙️ Setup
+## ⚙️  Setup
 ```
 npm install
 ```
