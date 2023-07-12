@@ -4,7 +4,9 @@ This is the Vue 3 front end to the [learning-asp](https://github.com/adamcurzon/
 
 ## 🎆 Preview
 
-<img width="500" src="https://raw.githubusercontent.com/adamcurzon/car-dealership/main/preview.png" />
+[https://adamcurzon.github.io/car-dealership/](https://adamcurzon.github.io/car-dealership/)
+
+<img width="300" src="https://raw.githubusercontent.com/adamcurzon/car-dealership/main/preview.png" />
 
 ## 🤔  TO DO
 - Connect API
