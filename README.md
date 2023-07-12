@@ -1,6 +1,16 @@
-# car-dealership
+# 🚗💨 Car Dealership
 
-## Project setup
+This is the front end to the [learning-asp](https://github.com/adamcurzon/learning-asp) project.
+
+## 🎆 Preview
+
+## 🤔 TO DO
+- Connect API
+- Store cars in state
+- Add login page
+- Store JWT or cookies
+
+## ⚙️ Setup
 ```
 npm install
 ```
@@ -14,11 +24,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
