@@ -99,7 +99,7 @@ export default {}
     width: 11px;
     height: 11px;
     line-height: 11px;
-    background-color: var(--orange);
+    background-color: var(--accent);
     border-radius: 100px;
     position: absolute;
     top: -1px;

@@ -12,13 +12,25 @@ import AllCarsTable from '../cars/AllCarsTable.vue';
                     <option>Highest Price</option>
                     <option>Lowest Price</option>
                 </select>
-                <button><i class="pi pi-plus-circle"></i> Add Car</button>
+                <router-link class="button" to="/car/add"><i class="pi pi-plus-circle"></i> Add Car</router-link>
             </div>
         </div>
-        <AllCarsTable />
+        <div class="table-holder">
+            <AllCarsTable />
+        </div>
     </div>
 </template>
 
 <script>
 export default {}
 </script>
+
+<style scoped>
+.full-widget {
+    height: 580px;
+}
+.table-holder {
+    max-height: 505px;
+    overflow: scroll;
+}
+</style>

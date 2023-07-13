@@ -2,7 +2,8 @@
     --sidemenu-width: 260px;
     --topbar-height: 80px;
 
-    --orange: #FE5E37;
+    --red: #c0392b;
+    --accent: #3498db;
     --green: #8AC389;
     --black: #0A0A0A;
     --light-black: #222;
@@ -12,30 +13,38 @@
 
     --border-radius: 8px;
 }
-*{
+
+* {
     box-sizing: border-box;
 }
+
 body {
     background: var(--grey);
     color: var(--black);
     margin: 0 auto;
     font-family: 'Inter', sans-serif;
+    overflow: hidden;
 }
+
 #app {
     display: flex;
     flex-wrap: nowrap;
 }
+
 .page {
     height: calc(100vh - var(--topbar-height));
     padding: 30px;
 }
+
 #page-container {
     width: calc(100% - var(--sidemenu-width));
 }
+
 h1 {
     padding: 0px;
     margin: 0px;
 }
+
 /* flexs */
 .flex-3 {
     display: flex;
@@ -51,6 +60,7 @@ h1 {
     margin-bottom: 20px;
     position: relative;
 }
+
 .widget .title {
     font-size: 20px;
     color: var(--black);
@@ -59,22 +69,30 @@ h1 {
     position: relative;
     height: 40px
 }
-.widget .title button {
+
+.widget .title button,
+.widget .title .button {
     background-color: var(--black);
     color: var(--grey);
     padding: 10px 15px 10px 5px;
 }
-.widget .title button:hover {
+
+.widget .title button:hover,
+.widget .title .button:hover {
     background-color: var(--light-black);
 }
-.widget .title button .pi {
+
+.widget .title button .pi,
+.widget .title .button .pi {
     padding: 0px 10px;
 }
+
 .widget .title select {
     background-color: var(--grey);
     color: var(--light-black);
     padding: 10px 20px;
 }
+
 .widget .title .title-right {
     position: absolute;
     right: 0px;
@@ -85,36 +103,43 @@ h1 {
     justify-content: center;
     gap: 10px;
 }
+
 .widget .title-small {
     font-size: 15px;
     color: var(--dark-grey);
     font-weight: 500;
     margin-bottom: 5px;
 }
+
 .widget .value {
     font-size: 18px;
     color: var(--light-black);
-    font-weight: 500;   
+    font-weight: 500;
 }
+
 .full-widget {
     width: 100%;
-    /* min-height: 500px; */
 }
+
 .widget-3 {
     width: calc(33.3% - 10px);
     line-height: 20px;
     padding: 25px 30px;
 }
+
 .widget.accent {
-    background-color: var(--orange);
+    background-color: var(--accent);
     color: var(--grey);
 }
+
 .widget.accent .title-small {
     color: var(--grey);
 }
+
 .widget.accent .value {
     color: var(--white);
 }
+
 .widget .icon {
     width: 45px;
     height: 45px;
@@ -129,12 +154,25 @@ h1 {
     color: var(--light-black);
     border-radius: var(--border-radius);
 }
+
 .widget.accent .icon {
-    background-color: rgba(255,255,255,0.2);  
-    color: var(--white);  
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--white);
 }
+
 .widget .icon.orange {
-    color: var(--orange) !important;  
+    color: var(--accent) !important;
+}
+
+/* notifications */
+.notification.success {
+    background-color: var(--green);
+    color: var(--white);
+}
+
+.notification.error {
+    background-color: var(--red);
+    color: var(--white)
 }
 
 /* table */
@@ -142,19 +180,23 @@ table {
     width: 100%;
     border-collapse: collapse;
 }
+
 table thead {
     font-weight: 500;
 }
+
 table td {
     border-bottom: 1px solid var(--grey);
     padding: 20px 0px;
 }
+
 table tr:last-child td {
     border-bottom: 0px;
 }
 
 /* buttons */
-button {
+button,
+.button {
     padding: 10px 20px;
     border-radius: var(--border-radius);
     border: 0;
@@ -164,15 +206,59 @@ button {
     align-items: center;
     justify-content: center;
     gap: 5px;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 400;
+    background-color: var(--grey);
+    color: var(--light-black);
 }
+
+button.black,
+.button.black {
+    background-color: var(--black);
+    color: var(--grey);
+}
+
+button.black:hover,
+.button.black:hover {
+    background-color: var(--light-black);
+}
+
 button.red {
     background-color: #FE5E37;
     color: var(--white);
 }
+
 select {
     border: 0px;
     outline: 0px;
     border-radius: var(--border-radius);
     cursor: pointer;
     border-right: 10px solid transparent;
+}
+
+input {
+    display: block;
+    background-color: var(--grey);
+    border: 0;
+    outline: 0;
+    padding: 15px;
+    border-radius: var(--border-radius);
+}
+
+input.error {
+    border: 1px solid var(--red);
+}
+
+.error {
+    color: var(--red);
+    font-size: 14px;
+}
+
+sup {
+    color: var(--red);
+}
+
+.errorText {
+    padding: 5px 15px;
 }

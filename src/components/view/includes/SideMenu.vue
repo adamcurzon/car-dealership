@@ -1,3 +1,7 @@
+<script setup>
+import LogoutButton from '../../buttons/LogoutButton.vue';
+</script>
+
 <template>
     <div id="sidemenu">
         <div class="title"><i class="pi pi-check"></i> Dealership</div>
@@ -6,13 +10,15 @@
         <router-link to="/car/add"><i class="pi pi-plus"></i>Add Car</router-link>
         <router-link to="/activity"><i class="pi pi-chart-bar"></i>Activity</router-link>
         <div class="bottom-links">
-            <router-link to="/logout"><i class="pi pi-power-off"></i>Logout</router-link>
+           <LogoutButton />
         </div>
     </div>
 </template>
 
 <script>
-export default {}
+export default {
+
+}
 </script>
 
 <style>
@@ -44,21 +50,26 @@ export default {}
     background-color: var(--light-black);
 }
 
-#sidemenu a {
+#sidemenu a,
+#sidemenu button {
     display: block;
     width: calc(100% - 40px);
     height: 60px;
     line-height: 60px;
     color: var(--dark-grey);
+    background-color: var(--black);
     text-decoration: none;
     padding: 0px 20px;
     border-radius: var(--border-radius);
     margin: 20px auto;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    font-size: 16px;
 }
 
-#sidemenu a:hover {
+#sidemenu a:hover,
+#sidemenu button:hover {
     color: var(--white);
     background-color: var(--light-black);
 }
@@ -67,7 +78,8 @@ export default {}
     color: var(--white);
 }
 
-#sidemenu a .pi {
+#sidemenu a .pi,
+#sidemenu button .pi {
     margin-right: 20px;
 }
 
