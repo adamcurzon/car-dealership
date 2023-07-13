@@ -31,8 +31,10 @@ export default {
             'setCars',
         ]),
         async getCars() {
-            var cars = await api.getAllCars();
-            this.setCars(cars.value);
+            if(window.location.href.includes('localhost')){
+                var cars = await api.getAllCars();
+                this.setCars(cars.value);
+            }
         }
     },
     computed: {
