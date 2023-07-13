@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
-    "baseUrl": "./car-dealership/",
+    "baseUrl": "./",
     "moduleResolution": "node",
     "paths": {
       "@/*": [
