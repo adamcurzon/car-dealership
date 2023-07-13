@@ -41,6 +41,7 @@ export default {
 
 #sidemenu .title .pi {
     margin-right: 5px;
+    color: var(--accent);
 }
 
 #sidemenu .breaker {

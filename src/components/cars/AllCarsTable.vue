@@ -9,13 +9,13 @@
             <td></td>
         </thead>
         <tbody>
-            <tr v-for="(child, index) in getCarsData" v-bind:key="index">
-                <td>{{ child.carName }}</td>
-                <td>{{ child.carEngineSize }}</td>
-                <td>{{ child.carEngineType }}</td>
-                <td>{{ child.carColour }}</td>
-                <td>{{ child.carSku }}</td>
-                <td></td>
+            <tr v-for="(car, index) in getCarsData" v-bind:key="index">
+                <td>{{ car.carName }}</td>
+                <td>{{ car.carEngineSize }}</td>
+                <td>{{ car.carEngineType }}</td>
+                <td>{{ car.carColour }}</td>
+                <td>{{ car.carSku }}</td>
+                <td><router-link class="button" :to="{path: '/car/' + car.id}">View Car</router-link></td>
             </tr>
         </tbody>
     </table>
