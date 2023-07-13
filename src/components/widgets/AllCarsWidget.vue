@@ -1,5 +1,5 @@
 <script setup>
-import AllCarsTable from '../cars/AllCars.vue';
+import AllCarsTable from '../cars/AllCarsTable.vue';
 </script>
 
 <template>

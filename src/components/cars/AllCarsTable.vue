@@ -39,5 +39,7 @@
 </template>
 
 <script>
+import api from '../../api/api';
+await api.getAllCars();
 export default {}
 </script>

@@ -1,12 +1,12 @@
 <script setup>
-import AllCarsWidget from '../cars/AllCars.vue';
+import AllCarsWidget from '../widgets/AllCarsWidget.vue';
 import StatsWidget from '../widgets/StatsWidget.vue';
 </script>
 
 <template>
     <div class="page">
-        <AllCarsWidget />
         <StatsWidget />
+        <AllCarsWidget />
     </div>
 </template>
 
