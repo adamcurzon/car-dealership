@@ -11,8 +11,8 @@
         <tbody>
             <tr v-for="(child, index) in getCarsData" v-bind:key="index">
                 <td>{{ child.carName }}</td>
-                <td>1.1</td>
-                <td>Petrol</td>
+                <td>{{ child.carEngineSize }}</td>
+                <td>{{ child.carEngineType }}</td>
                 <td>{{ child.carColour }}</td>
                 <td>{{ child.carSku }}</td>
                 <td></td>

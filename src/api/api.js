@@ -27,21 +27,23 @@ async function login(email, password) {
         body: JSON.stringify(formData)
     }).catch(() => console.log("error"));
 
-    if (response.status != 200) {
+    if (response == undefined || response.status != 200) {
         return false;
     }
 
     let responseData = (response).text();
     localStorage.setItem('jwt', await responseData);
 
-    return true;
+    return await responseData;
 }
 
-async function createCar(carName, carColour, carSku) {
+async function createCar(carName, carColour, carSku, carEngineSize, carEngineType) {
     let formData = {
         carName,
         carColour,
-        carSku
+        carSku,
+        carEngineSize,
+        carEngineType
     };
 
     let response = fetch("https://localhost:7147/api/Car/", {
@@ -62,10 +64,20 @@ async function createCar(carName, carColour, carSku) {
     return responseData;
 }
 
+async function getStats(){
+    let response = await fetch("https://localhost:7147/api/Stats/");
+    return {
+        totalCars: await response.text(),
+        usersOnline: 2,
+        adminsOnline: 3,
+    }
+}
+
 const apis = {
     getAllCars,
     login,
-    createCar
+    createCar,
+    getStats
 }
 
 export default apis;

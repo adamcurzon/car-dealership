@@ -11,15 +11,25 @@ import ErrorWidget from '../widgets/ErrorWidget.vue';
         <form>
             <label>Car Name<sup>*</sup></label>
             <div class="error errorText" v-if="this.v$.name.$error">Car name is required</div>
-            <input type="text" v-model="name" @blur="this.v$.name.$touch" :class="{error: this.v$.name.$error}"/>
+            <input type="text" v-model="name" @blur="this.v$.name.$touch" :class="{ error: this.v$.name.$error }" />
+
+            <label>Car Engine Size<sup>*</sup></label>
+            <div class="error errorText" v-if="this.v$.engineSize.$error">Car engine size is required</div>
+            <input type="text" v-model="engineSize" @blur="this.v$.engineSize.$touch"
+                :class="{ error: this.v$.engineSize.$error }" />
+
+            <label>Car Engine Type<sup>*</sup></label>
+            <div class="error errorText" v-if="this.v$.engineType.$error">Car engine type is required</div>
+            <input type="text" v-model="engineType" @blur="this.v$.engineType.$touch"
+                :class="{ error: this.v$.engineType.$error }" />
 
             <label>Car Colour<sup>*</sup></label>
             <div class="error errorText" v-if="this.v$.colour.$error">Car colour is required</div>
-            <input type="text" v-model="colour" @blur="this.v$.colour.$touch" :class="{error: this.v$.colour.$error}" />
+            <input type="text" v-model="colour" @blur="this.v$.colour.$touch" :class="{ error: this.v$.colour.$error }" />
 
             <label>Car Sku<sup>*</sup></label>
             <div class="error errorText" v-if="this.v$.sku.$error">Car sku is required</div>
-            <input type="text" v-model="sku" @blur="this.v$.sku.$touch" :class="{error: this.v$.sku.$error}" />
+            <input type="text" v-model="sku" @blur="this.v$.sku.$touch" :class="{ error: this.v$.sku.$error }" />
 
             <button type="button" @click="createCar" class="black">Add Car</button>
         </form>
@@ -38,6 +48,8 @@ export default {
             name: '',
             colour: '',
             sku: '',
+            engineSize: '',
+            engineType: '',
             successText: '',
             errorText: '',
         }
@@ -55,7 +67,13 @@ export default {
                 return;
             }
 
-            let createCar = await apis.createCar(this.name, this.colour, this.sku);
+            let createCar = await apis.createCar(
+                this.name,
+                this.colour,
+                this.sku, 
+                this.engineSize,
+                this.engineType
+            );
 
             if (!await createCar) {
                 this.errorText = "Error! Car couldn't be created";
@@ -64,16 +82,22 @@ export default {
 
             this.successText = "Successfully created new car";
 
-            this.name = ''
-            this.colour = ''
-            this.sku = ''
+            this.name = '';
+            this.colour = '';
+            this.sku = '';
+            this.engineSize = '';
+            this.engineType = '';
+
+            this.v$.$reset();
         },
     },
     validations() {
         return {
             name: { required },
             colour: { required },
-            sku: { required }
+            sku: { required },
+            engineType: { required },
+            engineSize: { required },
         }
     }
 }

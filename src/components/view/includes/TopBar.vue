@@ -9,7 +9,7 @@
                 <i class="pi pi-bell"></i>
                 <div class="count">3</div>
             </div>
-            <div class="name">Adam Curzon</div>
+            <div class="name">{{ getUser.name }}</div>
             <div class="profile">
                 <img src="https://avatars.githubusercontent.com/u/82769416?s=58&v=5" />
             </div>
@@ -18,7 +18,14 @@
 </template>
 
 <script>
-export default {}
+import { mapGetters, mapMutations } from 'vuex';
+
+export default {
+    computed: {
+        ...mapGetters(['getUser', 'isJwtSet']),
+        ...mapMutations(['setUser']),
+    },
+}
 </script>
 
 <style>
@@ -64,6 +71,7 @@ export default {}
 #topbar input::placeholder {
     color: var(--dark-grey);
 }
+
 .topbar-right {
     position: relative;
     right: 0px;
@@ -71,6 +79,7 @@ export default {}
     align-items: center;
     gap: 15px;
 }
+
 #topbar .profile {
     width: 40px;
     height: 40px;
@@ -79,6 +88,7 @@ export default {}
     cursor: pointer;
     overflow: hidden;
 }
+
 #topbar .name {
     color: var(--dark-grey);
     font-size: 12px;
@@ -107,5 +117,4 @@ export default {}
     font-size: 8px;
     text-align: center;
     color: var(--white);
-}
-</style>
+}</style>

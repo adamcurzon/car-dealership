@@ -3,7 +3,13 @@ import { createStore } from 'vuex'
 const store = createStore({
   state () {
     return {
+      user: {},
       jwtSet: localStorage.getItem("jwt") ? true : false,
+      stats: {
+        totalCars: 1,
+        usersOnline: 2,
+        adminsOnline: 3,
+      },
       cars: [
         {
           carName : "Ford Fiesta",
@@ -24,6 +30,12 @@ const store = createStore({
     },
     setIsJwt(state, payload){
       state.jwtSet = payload;
+    },
+    setStats(state, payload){
+      state.stats = payload;
+    },
+    setUser(state, payload){
+      state.user = payload;
     }
   },
   getters: {
@@ -32,6 +44,12 @@ const store = createStore({
       },
       isJwtSet(state){
         return state.jwtSet;
+      },
+      getStats(state){
+        return state.stats;
+      },
+      getUser(state){
+        return state.user;
       }
   }
 });

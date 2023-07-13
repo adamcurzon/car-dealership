@@ -15,3 +15,9 @@ export default {
 
 }
 </script>
+
+<style scoped>
+.page {
+    overflow: scroll;
+}
+</style>

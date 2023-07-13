@@ -6,6 +6,7 @@ import ErrorWidget from '../widgets/ErrorWidget.vue';
 <template>
     <div class="page">
         <div class="login widget">
+            <h1>Login</h1>
             <ErrorWidget :message="errorText"/>
             <label>Email</label>
             <div class="error" v-if="this.v$.email.$error">Email is required</div>
@@ -21,10 +22,11 @@ import ErrorWidget from '../widgets/ErrorWidget.vue';
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import { mapMutations } from 'vuex';
 import { required } from '@vuelidate/validators';
 import { useVuelidate } from '@vuelidate/core';
-// import router from '../../router';
+import jwt_decode from "jwt-decode";
+
 import apis from '../../api/api';
 export default {
     data() {
@@ -36,8 +38,7 @@ export default {
         }
     },
     methods: {
-        ...mapGetters(['isJwtSet']),
-        ...mapMutations(['setIsJwt']),
+        ...mapMutations(['setIsJwt', 'setUser']),
         async login() {
             this.v$.$validate();
 
@@ -47,7 +48,7 @@ export default {
             }
 
             let loginSuccess = await apis.login(this.email, this.password);
-            console.log(await loginSuccess);
+
             if(!await loginSuccess){
                 this.errorText = "Invalid credentials";
                 return;
@@ -55,7 +56,9 @@ export default {
 
             this.setIsJwt(true);
 
-            // router.push('/');
+            // Decode JWT
+            var decodedUser = jwt_decode(await loginSuccess);
+            this.setUser(decodedUser);
         },
     },
     validations() {
@@ -78,6 +81,8 @@ export default {
 .widget.login {
     width: 100%;
     max-width: 500px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 .widget.login input {
     width: 100%;
@@ -89,5 +94,9 @@ export default {
     margin: 0 auto;
     margin-top: 20px;
     padding: 15px 0px;
+}
+h1 {
+    text-align: center;
+    padding: 20px 0px;
 }
 </style>
