@@ -2,11 +2,11 @@
     <div id="sidemenu">
         <div class="title"><i class="pi pi-check"></i> Dealership</div>
         <div class="breaker"></div>
-        <a href="" class="active"><i class="pi pi-car"></i>All Cars</a>
-        <a href=""><i class="pi pi-plus"></i>Add Car</a>
-        <a href=""><i class="pi pi-chart-bar"></i>Activity</a>
+        <router-link to="/"><i class="pi pi-car"></i>All Cars</router-link>
+        <router-link to="/car/add"><i class="pi pi-plus"></i>Add Car</router-link>
+        <router-link to="/activity"><i class="pi pi-chart-bar"></i>Activity</router-link>
         <div class="bottom-links">
-            <a href=""><i class="pi pi-power-off"></i>Logout</a>
+            <router-link to="/logout"><i class="pi pi-power-off"></i>Logout</router-link>
         </div>
     </div>
 </template>
@@ -63,7 +63,7 @@ export default {}
     background-color: var(--light-black);
 }
 
-#sidemenu a.active {
+#sidemenu .router-link-active {
     color: var(--white);
 }
 
