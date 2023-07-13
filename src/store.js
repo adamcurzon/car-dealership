@@ -2,9 +2,15 @@ import { createStore } from 'vuex'
 
 const store = createStore({
   state () {
-    return {}
+    return {
+      cars: []
+    }
   },
-  mutations: {}
+  mutations: {
+    setCars(state, payload){
+      state.cars = payload
+    }
+  }
 });
 
 export default store;
