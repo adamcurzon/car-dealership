@@ -3,7 +3,18 @@ import { createStore } from 'vuex'
 const store = createStore({
   state () {
     return {
-      cars: []
+      cars: [
+        {
+          carName : "Ford Fiesta",
+          carColour : "Silver",
+          carSku: "ffsilver",
+        },
+        {
+          carName : "BMW M140",
+          carColour : "Black",
+          carSku: "bmblack",
+        },
+      ]
     }
   },
   mutations: {
