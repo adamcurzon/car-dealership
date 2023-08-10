@@ -1,8 +1,5 @@
 # 🚗💨  Car Dealership
 
-
-This is my feature
-
 This is the Vue 3 front end to the [learning-asp](https://github.com/adamcurzon/learning-asp) project.
 
 ## 🎆 Preview
